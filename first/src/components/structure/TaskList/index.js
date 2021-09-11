@@ -32,6 +32,8 @@ export default function TaskList() {
           <TaskCard task={task} key={task._id} />
         ))}
       </table>
+      
+
     </div>
   );
 }

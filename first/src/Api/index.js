@@ -1,9 +1,9 @@
-export const Api = {
-    url: 'http://localhost:3050/tasks',
-    fetchGet: () =>  fetch(Api.url),
-    fetchGetById: (id) => fetch(Api.url + '/FindById/' + id),
+const Api = {
+    url: 'http://localhost:3050',
+    fetchGet: () =>  fetch(Api.url + '/tasks'),
+    fetchGetById: (id) => fetch(Api.url + '/task/' + id),
     fetchPost: (body) => {
-      return fetch(Api.url + '/add', {
+      return fetch(Api.url + '/task/new', {
         method: 'POST',
         headers: new Headers({
           "Content-type": "application/json"
@@ -12,3 +12,4 @@ export const Api = {
       })
     }
   }
+export default Api;

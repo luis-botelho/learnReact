@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Api } from '../../api/api';
+import Api  from '../../Api';
 
-const CreateTask = () =>{
+const CreateTask = (props) =>{
     const [task, setTask] = useState({})
 
-    const handleFields = (event) =>{
+    const handleChange = (event) =>{
         const auxTask = { ...task };
         auxTask[event.target.name] = event.target.value;
         setTask(auxTask);
@@ -12,7 +12,47 @@ const CreateTask = () =>{
 
     const handleSubmit = async (event) =>{
         event.preventDefault();
-        
+        try{
+            const response = await Api.fetchPost(task);
+            props.history.push('/')
+        } catch(err){
+            console.log(err);
+        }
     }
 
+    return( 
+        <section>
+            <form onSubmit={handleSubmit}>
+                <div className="formInputs">
+                    <label hmtlFor="title" className="formLabel">Título</label>
+                    <input type="text" className="formInput" name="title" id="title" onChange={handleChange}></input>
+                </div>
+                <div className="formInputs">
+                    <label hmtlFor="description" className="formLabel">descrição</label>
+                    <textarea className="formTextarea" name="description" id="description" onChange={handleChange}></textarea>
+                </div>
+                <div className="formInputs">
+                    <span>Prioridade</span>
+                    <select name="priority" id="priority"className="formSelect" onChange={handleChange}>
+                        <option value="Alta">Alta</option>
+                        <option value="Média">Média</option>
+                        <option value="Baixa">Baixa</option>
+                    </select>
+                    <span>Status</span>
+                    <select name="status" id="status" className="formSelect" onChange={handleChange}>
+                        <option value="Fazer">Fazer</option>
+                        <option value="Fazendo">Fazendo</option>
+                        <option value="Feita">Feita</option>
+                    </select>
+                </div>
+                <div className="formDate">
+                    <label hmtlFor="deadline">Prazo:</label>
+                    <input type="datetime-local" name="deadline" id="deadline" onChange={handleChange}></input>
+                </div>
+                <button type="submit" className="btn">Criar</button>
+            </form>
+        </section>
+    )
 }
+
+export default CreateTask;
