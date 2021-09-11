@@ -15,25 +15,22 @@ export default function TaskList() {
     console.log(data);
     setTasks(data);
   };
-
+  const todo = tasks.filter(task => task.status == "doing")
+  
   return (
     <div className="list">
-      <table>
-        <tr>
-          <th>Título</th>
-          <th>Descriçao</th>
-          <th>Prioridade</th>
-          <th>Status</th>
-          <th>Data da criação</th>
-          <th>Prazo</th>
-          <th>Data de atualização</th>
-        </tr>
-        {tasks.map((task, index) => (
+        {todo.map((task, index) => (
           <TaskCard task={task} key={task._id} />
         ))}
-      </table>
-      
-
+        
     </div>
   );
 }
+const fruits = ['apple', 'banana', 'grapes', 'mango', 'orange'];
+
+const filterItems = (query) => {
+  return fruits.filter(el => el.toLowerCase().indexOf(query.toLowerCase()) > -1);
+};
+
+console.log(filterItems('ap')); // ['apple', 'grapes']
+console.log(filterItems('an')); // ['banana', 'mango', 'orange']
