@@ -1,15 +1,13 @@
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+.taskCard{
+  border: 1px solid #ccc;
+  border-radius:1rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
 }
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+.taskLink{
+  text-decoration: none;
+  color:#ccc;
 }
-
-tr:nth-child(even) {
-  background-color: #dddddd;
+.taskCard:hover{
+  border-color:white;
 }

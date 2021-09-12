@@ -1,11 +1,10 @@
 import React from 'react';
 import TaskList from '../../components/structure/TaskList'
-
+import './Home.css';
 export default function Home(){
     return(
-        <div>
+        <div className="container">
             <TaskList/>
-            
         </div>
     )
 }

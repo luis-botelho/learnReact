@@ -1,19 +1,19 @@
 import React from "react";
 import './TaskCard.css'
+import { Link } from 'react-router-dom';
 
 const TaskCard = (props) => {
   const task = props.task;
 
   return (
-    <div>
-      <span>{task.title}</span>
-      <span>{task.description}</span>
-      <span>{task.priority}</span>
-      <span>{task.status}</span>
-      <span>{task.createdAt}</span>
-      <span>{task.deadline}</span>
-      <span>{task.updatedAt}</span>
-    </div>
+    <Link to={`/task/${task._id}`} className="taskLink">
+      <div className="taskCard">
+        <p className="taskTitle">{task.title}</p>
+        <p className="taskDescription">{task.description}</p>
+        <div className="taskPriorityDiv"><span>{task.priority}</span></div>
+        <p className="taskDeadLine">{task.DeadLine}</p>
+      </div>
+    </Link>
   );
 }
 
