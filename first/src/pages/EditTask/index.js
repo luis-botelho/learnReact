@@ -1,39 +1,45 @@
-import React, { useState } from "react";
-import Api  from '../../Api';
-import './CreatTask.css'
+import React, {useEffect, useState} from 'react';
+import Api from '../../Api'
 
-const CreateTask = (props) =>{
-    const [task, setTask] = useState({})
 
-    const handleChange = (event) =>{
-        const auxTask = { ...task };
-        auxTask[event.target.name] = event.target.value;
-        setTask(auxTask);
+const EditTask = (props) => {
+    const id = props.match.params.id;
+    const [fields,setFields] = useState({});
+    useEffect(() => {
+        getTaskById();
+    }, [])
+    const getTaskById = async () =>{
+        const response = await Api.fetchGetById(id);
+        const data = await response.json();
+        setFields(data[0])
     }
-
-    const handleSubmit = async (event) =>{
-        event.preventDefault();
-        try{
-            await Api.fetchPost(task);
-            props.history.push('/')
-        } catch(err){
-            console.log(err);
-        }
-    }
-
+    const handleChange = (event) => {
+        const auxFields = { ...fields };
+        auxFields[event.target.name] = event.target.value;
+        setFields(auxFields);
+      }
+    
+      const handleSubmit = async (evento) => {
+        evento.preventDefault();
+        const data = { ...fields };
+        const result = await Api.fetchPut(data, id);
+        await result.json();
+      }
+    
+     
     return( 
         <section className="form">
             <form onSubmit={handleSubmit}>
                 <div className="formInputs">
-                    <label hmtlFor="title" className="formLabel">Título</label>
-                    <input type="text" className="formInput" name="title" id="title" onChange={handleChange}></input>
+                    <label hmtlFor="title" className="formLabel">Título: </label>
+                    <input type="text" className="formInput" name="title" id="title" onChange={handleChange} value={fields.title}></input>
                 </div>
                 <div className="formInputs">
-                    <label hmtlFor="description" className="formLabel">descrição</label>
+                    <label hmtlFor="description" className="formLabel">Descrição: </label>
                     <textarea className="formTextarea" name="description" id="description" onChange={handleChange}></textarea>
                 </div>
                 <div className="formInputs">
-                    <span>Prioridade</span>
+                    <span>Prioridade: </span>
                     <select name="priority" id="priority"className="formSelect" onChange={handleChange}>
                         <option value="Alta">Alta</option>
                         <option value="Média">Média</option>
@@ -48,7 +54,7 @@ const CreateTask = (props) =>{
                 </div>
                 <div className="formDate">
                     <label hmtlFor="deadline">Prazo:</label>
-                    <input type="datetime-local" name="deadline" id="deadline" onChange={handleChange}></input>
+                    <input type="datetime-local" name="deadline" id="deadline" onChange={handleChange} value="{"></input>
                 </div>
                 <button type="submit" className="btn">Criar</button>
             </form>
@@ -56,4 +62,4 @@ const CreateTask = (props) =>{
     )
 }
 
-export default CreateTask;
+export default EditTask;

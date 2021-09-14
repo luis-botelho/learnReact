@@ -1,25 +1,34 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { Link } from 'react-router-dom'
 import '../Header/Header.css'
 
 
 export default function Header(){
-    
-    
-    const changeColor = (selector) => {
+    const [btnHome, setBtnHome] = useState('btn')
+    const [btnCreate, setBtnCreate] = useState('btn')
+
+    useEffect(() => {
         
-        
+    }, [])
+
+    const selectHome = () => {
+        setBtnHome('selected')
+        setBtnCreate('btn')
     }
+    const selectCreate = () => { 
+        setBtnHome('btn')
+        setBtnCreate('selected')
+    } 
 
     return(
         <header className="header">
             <nav className="navbar">
                 <ul className="nav">
                     <Link to="/">
-                        <li onclick={changeColor('home')} id='home'>Tarefas</li>
+                        <li className={btnHome} onClick={selectHome}>Tarefas</li>
                     </Link>
                     <Link to="/new">
-                        <li>Criar uma Tarefa</li>
+                        <li className={btnCreate} onClick={selectCreate}>Criar uma Tarefa</li>
                     </Link>
                 </ul>
             </nav>

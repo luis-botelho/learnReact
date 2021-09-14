@@ -6,19 +6,27 @@
     display: flex;
     background-color: #1E1F21;
     height: 2rem;
-    justify-content: space-around;
+    border-bottom: 1px solid #ccc;
 }
 .nav a {
     text-decoration: none;
     
 }
-.nav li{
+.nav .btn{
     color: #ccc;
     list-style: none;
     border-bottom: 1px solid #ccc;
     padding-bottom:.8rem;
+    margin-left: 1rem;
 }
-.nav li:hover{
-    color: rgb(241, 241, 241);
-    border-bottom: 1px solid rgb(241, 241, 241);
+.nav .btn:hover{
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+.nav .selected{
+    color: #4573D2;
+    list-style: none;
+    border-bottom: 1px solid #4573D2;
+    padding-bottom:.8rem;
+    margin-left: 1rem;
 }

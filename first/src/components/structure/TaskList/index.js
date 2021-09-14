@@ -13,7 +13,6 @@ export default function TaskList() {
   const getTask = async () => {
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
     setTasks(data);
   };
   const todo = tasks.filter(task => task.status === "Fazer")
@@ -44,5 +43,5 @@ export default function TaskList() {
     
   );
 }
-const fruits = ['apple', 'banana', 'grapes', 'mango', 'orange'];
+
 
