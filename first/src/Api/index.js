@@ -1,5 +1,5 @@
 const Api = {
-  url: "https://todoapiluis.herokuapp.com/",
+  url: "https://todoapiluis.herokuapp.com",
   fetchGet: () => fetch(Api.url + "/tasks"),
   fetchGetById: (id) => fetch(Api.url + "/task/" + id),
   fetchPost: (body) => {
