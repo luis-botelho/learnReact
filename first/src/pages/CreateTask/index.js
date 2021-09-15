@@ -80,7 +80,7 @@ const CreateTask = (props) => {
             <div className="formInputs">
               <label hmtlFor="deadline">Prazo:</label>
               <input
-                type="datetime-local"
+                type="date"
                 name="deadline"
                 id="deadline"
                 onChange={handleChange}
