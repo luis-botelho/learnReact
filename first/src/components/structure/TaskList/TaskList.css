@@ -1,4 +1,9 @@
-
+article h1{
+    color: #fff;
+    text-align: center;
+    font-size:2rem;
+    padding:1rem; 
+}
 .taskContainer{
     display: flex;
     flex-wrap: wrap;

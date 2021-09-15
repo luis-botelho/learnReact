@@ -1,13 +1,20 @@
 *{
     
 }
-.form{
+section{
     background-color: #252628;
+}
+
+.form{
     color: #fff;
     height:88vh;
+    width:60%;
+    margin: 0 auto;
 }
 .form h1{
-    font-size:60px;
+    font-size:2rem;
+    text-align: center;
+    padding: 1rem;
 }
 .form form{
     border: 1px solid #ccc;

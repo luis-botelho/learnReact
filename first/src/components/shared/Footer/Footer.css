@@ -2,4 +2,12 @@ footer{
     background-color: #1E1F21;
     color: #ccc;
     height:10vh;
+    text-align: center;
+}
+footer a {
+    text-decoration: none;
+    color: #ccc;
+}
+footer a:hover{
+    color: #fff;
 }

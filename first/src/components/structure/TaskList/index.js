@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TaskCard from "../TaskCard";
 import './TaskList.css'
-
+import Api from "../../../Api";
 export default function TaskList() {
   const [tasks, setTasks] = useState([]);
 
@@ -9,9 +9,8 @@ export default function TaskList() {
     getTask();
   }, []);
 
-  const url = "http://localhost:3050/tasks";
   const getTask = async () => {
-    const response = await fetch(url);
+    const response = await Api.fetchGet();
     const data = await response.json();
     setTasks(data);
   };
@@ -20,26 +19,30 @@ export default function TaskList() {
   const done = tasks.filter(task => task.status === "Feita")
   
   return (
-    <div className="taskContainer">
-        <div className="todo">
-          <h2>Fazer</h2>
-          {todo.map((task) => (
-            <TaskCard task={task} key={task._id} />
-          ))}
-        </div>
-        <div className="doing">
-          <h2>Fazendo</h2>
-          {doing.map((task) => (
-            <TaskCard task={task} key={task._id} />
-          ))}
-        </div>
-        <div className="done">
-        <h2>Feitas</h2>
-          {done.map((task) => (
-            <TaskCard task={task} key={task._id} />
-          ))}
-        </div> 
-    </div>
+    <article>
+      <h1>Lista de tarefas</h1>
+      <div className="taskContainer">
+      
+          <div className="todo">
+            <h2>Fazer</h2>
+            {todo.map((task) => (
+              <TaskCard task={task} key={task._id} />
+            ))}
+          </div>
+          <div className="doing">
+            <h2>Fazendo</h2>
+            {doing.map((task) => (
+              <TaskCard task={task} key={task._id} />
+            ))}
+          </div>
+          <div className="done">
+          <h2>Feitas</h2>
+            {done.map((task) => (
+              <TaskCard task={task} key={task._id} />
+            ))}
+          </div>
+      </div>
+    </article>
     
   );
 }

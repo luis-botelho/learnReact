@@ -11,7 +11,7 @@ const TaskCard = (props) => {
   return (
     <Link to={`/task/${task._id}`} className="taskLink">
       <div className="taskCard">
-        <p className="taskTitle">{task.title}</p>
+        <h3 className="taskTitle">{task.title}</h3>
         <p className="taskDeadLine">Prazo: {deadline}</p>
         <div className="taskPriorityDiv"><span className={color}><span className="priority">Prioridade:</span> {task.priority}</span></div>
         <p className="taskDeadLine">{task.DeadLine}</p>
