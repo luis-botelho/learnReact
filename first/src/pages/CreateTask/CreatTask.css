@@ -12,7 +12,7 @@ section{
     margin: 0 auto;
 }
 .form h1{
-    font-size:2rem;
+    font-size:1.5rem;
     text-align: center;
     padding: 1rem;
 }
@@ -33,12 +33,12 @@ section{
     align-items: center;
 }
 .form form label, span {
-    font-size:30px;
+    font-size:1rem;
 }
 .form form input, textarea, select{
     background-color: #252628;
     color: #fff;
     height: 100%;
-    font-size:30px;
+    font-size:1rem;
     margin: 1rem;
 }

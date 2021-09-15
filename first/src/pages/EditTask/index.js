@@ -29,6 +29,9 @@ const EditTask = (props) => {
       console.log(e);
     }
   };
+  const exit = () => {
+    props.history.push(`/task/${id}`);
+  };
 
   return (
     <section >
@@ -92,8 +95,9 @@ const EditTask = (props) => {
               ></input>
             </div>
             <button type="submit" className="btn">
-              Editar
+              Concluir
             </button>
+            <button type="button" onclick={exit}>Voltar</button>
           </form>
       </div>
     </section>
