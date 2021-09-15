@@ -11,3 +11,20 @@
 .taskCard:hover{
   border-color:white;
 }
+.priority{
+  color:#ccc;
+  font-size: 1rem;
+}
+.high{
+  color:red;
+  font-size: 1rem;
+  
+}
+.low{
+  color:green;
+  font-size: 1rem;
+}
+.mid{
+  color:yellow;
+  font-size: 1rem;
+}

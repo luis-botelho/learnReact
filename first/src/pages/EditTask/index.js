@@ -22,10 +22,12 @@ const EditTask = (props) => {
       const handleSubmit = async (evento) => {
         evento.preventDefault();
         const data = { ...fields };
-        const result = await Api.fetchPut(data, id);
-        await result.json();
+        try{
+            await Api.fetchPut(data, id);
+        props.history.push('/')
+        }catch(e){console.log(e);}
       }
-    
+    let description = fields.description;
      
     return( 
         <section className="form">
@@ -34,10 +36,10 @@ const EditTask = (props) => {
                     <label hmtlFor="title" className="formLabel">Título: </label>
                     <input type="text" className="formInput" name="title" id="title" onChange={handleChange} value={fields.title}></input>
                 </div>
-                <div className="formInputs">
-                    <label hmtlFor="description" className="formLabel">Descrição: </label>
-                    <textarea className="formTextarea" name="description" id="description" onChange={handleChange}></textarea>
-                </div>
+                
+                <label hmtlFor="description" className="formLabel">Descrição: </label>
+                <textarea className="formTextarea" name="description" id="description" onChange={handleChange}>{`${description}`}</textarea>
+                
                 <div className="formInputs">
                     <span>Prioridade: </span>
                     <select name="priority" id="priority"className="formSelect" onChange={handleChange}>
@@ -54,9 +56,9 @@ const EditTask = (props) => {
                 </div>
                 <div className="formDate">
                     <label hmtlFor="deadline">Prazo:</label>
-                    <input type="datetime-local" name="deadline" id="deadline" onChange={handleChange} value="{"></input>
+                    <input type="datetime-local" name="deadline" id="deadline" onChange={handleChange} ></input>
                 </div>
-                <button type="submit" className="btn">Criar</button>
+                <button type="submit" className="btn">Editar</button>
             </form>
         </section>
     )

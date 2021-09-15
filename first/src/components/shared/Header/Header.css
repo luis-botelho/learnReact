@@ -1,22 +1,23 @@
 *{
     margin: 0;
     padding: 0;
+    font-size:1.2rem;
 }
 .nav{
     display: flex;
     background-color: #1E1F21;
-    height: 2rem;
+    height:2.2rem;
     border-bottom: 1px solid #ccc;
+
 }
 .nav a {
     text-decoration: none;
-    
 }
 .nav .btn{
     color: #ccc;
     list-style: none;
     border-bottom: 1px solid #ccc;
-    padding-bottom:.8rem;
+    padding-bottom:.7rem;
     margin-left: 1rem;
 }
 .nav .btn:hover{
@@ -27,6 +28,6 @@
     color: #4573D2;
     list-style: none;
     border-bottom: 1px solid #4573D2;
-    padding-bottom:.8rem;
+    padding-bottom:.7rem;
     margin-left: 1rem;
 }

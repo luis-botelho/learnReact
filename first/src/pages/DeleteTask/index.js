@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Api from "../../Api";
+import "./DeleteTask.css";
 
-const DeleteTask =  (props) => {
+const DeleteTask = (props) => {
   const id = props.match.params.id;
+  const [task, setTask] = useState({});
+
+  useEffect(() => {
+    getTaskById();
+  }, []);
+
+  const getTaskById = async () => {
+    const reponse = await Api.fetchGetById(id);
+    const data = await reponse.json();
+    setTask(data[0]);
+  };
+
   const handleDelete = async (evento) => {
     evento.preventDefault();
     await Api.fetchDelete(id);
@@ -13,8 +26,8 @@ const DeleteTask =  (props) => {
   };
   return (
     <div className="DeleteCard">
-      <h1>Deseja Excluir a tarefa</h1>
-      <div className="DeleteBtns">
+      <div className="modal">
+        <h1>{`Deseja Excluir a tarefa ${task.title} ?`}</h1>
         <button onClick={handleDelete} className="DeleteBtn">
           Deletar
         </button>

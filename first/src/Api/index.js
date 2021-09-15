@@ -12,7 +12,7 @@ const Api = {
     });
   },
   fetchPut: (body, id) => {
-    return fetch(Api.url + "/task/edit" + id, {
+    return fetch(Api.url + "/task/edit/" + id, {
       method: "PUT",
       headers: new Headers({
         "content-type": "application/json",

@@ -1,15 +1,14 @@
-.viewCard h1{
-    font-size:2rem;
-}
-.viewBody{
+
+.DeleteCard{
     background-color: #252628;
     color: #fff;
     display:flex;
     justify-content:center;
     align-items:center;
     height: 90vh;
+    
 }
-.viewCard{
+.modal{
     margin: 1rem;
     border: 1px solid #ccc;
     padding: 1rem;   

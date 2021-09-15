@@ -3,14 +3,9 @@ import { Link } from 'react-router-dom'
 import '../Header/Header.css'
 
 
-export default function Header(){
-    const [btnHome, setBtnHome] = useState('btn')
+export default function Header(props){
+    const [btnHome, setBtnHome] = useState('selected')
     const [btnCreate, setBtnCreate] = useState('btn')
-
-    useEffect(() => {
-        
-    }, [])
-
     const selectHome = () => {
         setBtnHome('selected')
         setBtnCreate('btn')
