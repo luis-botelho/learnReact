@@ -23,7 +23,7 @@ const TaskView = (props) => {
     const reponse = await Api.fetchGetById(id);
     const data = await reponse.json();
     setTask(data[0]);
-    let deadline = format(new Date(data[0].deadline), "hh:mm dd/MM/yyyy");
+    let deadline = format(new Date(data[0].deadline), "dd/MM/yyyy");
     let createdAt = format(new Date(data[0].createdAt), "hh:mm dd/MM/yyyy");
     let updatedAt = format(new Date(data[0].updatedAt), "hh:mm dd/MM/yyyy");
     setDeadline(deadline);

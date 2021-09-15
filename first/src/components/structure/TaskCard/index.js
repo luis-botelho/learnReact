@@ -6,7 +6,7 @@ import { format } from 'date-fns'
 const TaskCard = (props) => {
   const task = props.task;
   const color = props.task.priority === 'Alta' ? 'high' : props.task.priority === 'Baixa' ? 'low' : 'mid';
-  const deadline = format(new Date(task.deadline),'hh:mm dd/MM/yyyy')
+  const deadline = format(new Date(task.deadline),'dd/MM/yyyy')
   
   return (
     <Link to={`/task/${task._id}`} className="taskLink">
